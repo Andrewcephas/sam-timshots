@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import styles from './page.module.css'
+import images from '../assets'
+const newsImages = images.newsImages
+const videoThumbnails = images.videoThumbnails
 
 function Image({ src, alt, width, height }: { src: string, alt: string, width?: number, height?: number }) {
   return <img src={src} alt={alt} style={{ width, height, objectFit: 'cover' }} />
@@ -17,7 +20,7 @@ const newsItems = [
     title: 'Fridah and Lofty on Obinna Show Live',
     date: 'February 24, 2026',
     excerpt: 'The dynamic duo of Fridah Mwaka and Lofty Matambo, affectionately known as "Mtu na Pacha Wake," lit up the screens on Obinna Show Live...',
-    image: 'https://i0.wp.com/obinnatvstudios.com/wp-content/uploads/2026/02/IMG_9197-scaled.jpg?fit=768%2C1152&ssl=1'
+    image: newsImages.FridaLofty
   },
   {
     id: 2,
@@ -25,7 +28,7 @@ const newsItems = [
     title: 'The Epic Showdown: Majembe vs. Mbavu Destroyer – April 4, 2026',
     date: 'February 9, 2026',
     excerpt: 'Enter the much-anticipated showdown between Majembe Majembe and Mbavu Destroyer, set to unfold on April 4, 2026...',
-    image: 'https://i0.wp.com/obinnatvstudios.com/wp-content/uploads/2026/02/Vurugu-Design.jpg-1.jpeg?fit=768%2C921&ssl=1'
+    image: newsImages.Vurugu
   },
   {
     id: 3,
@@ -33,7 +36,7 @@ const newsItems = [
     title: 'Hoch Muhoro on Obinna Show Live',
     date: 'February 9, 2026',
     excerpt: 'In a world where independence is often celebrated as the ultimate adult milestone, Kenyan comedian and content creator Hoch Muhoro is flipping the script...',
-    image: 'https://i0.wp.com/obinnatvstudios.com/wp-content/uploads/2026/02/IMG_4305-scaled.jpg?fit=768%2C512&ssl=1'
+    image: newsImages.HochMuhoro
   },
   {
     id: 4,
@@ -41,7 +44,7 @@ const newsItems = [
     title: 'Mic Cheque Podcast On Obinna Show Live',
     date: 'January 26, 2026',
     excerpt: 'The Mic Cheque Podcast crew lit up the Obinna Show Live screens in an episode that\'s pure fire - no scripts, no filters, just nonstop humour...',
-    image: 'https://i0.wp.com/obinnatvstudios.com/wp-content/uploads/2026/01/IMG_3810-scaled.jpg?fit=768%2C512&ssl=1'
+    image: videoThumbnails.podcast
   }
 ]
 

@@ -12,7 +12,28 @@
 .hero {
   padding: 150px 0 60px;
   text-align: center;
-  background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #f8f5f0 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 70%, rgba(254, 127, 2, 0.1) 0%, transparent 50%);
+  animation: heroFloat 6s ease-in-out infinite;
+}
+
+@keyframes heroFloat {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
 }
 
 .hero h1 {
@@ -20,11 +41,23 @@
   font-weight: 700;
   margin-bottom: 15px;
   color: #1a1a1a;
+  position: relative;
+  animation: titleBounce 3s ease-in-out infinite;
 }
 
 .hero p {
   font-size: 18px;
   color: #666666;
+  position: relative;
+}
+
+@keyframes titleBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
 }
 
 .talent {

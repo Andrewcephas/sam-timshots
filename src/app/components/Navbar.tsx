@@ -30,7 +30,7 @@ export default function Navbar() {
       <div className={styles.container}>
         <Link to="/" className={styles.logo}>
           <svg width="180" height="50" viewBox="0 0 180 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <text x="5" y="35" fill={scrolled ? "#ff6b35" : "#ffffff"} fontSize="24" fontWeight="700" fontFamily="Poppins">OBTV STUDIOS</text>
+            <text x="5" y="35" fill="#1a1a1a" fontSize="24" fontWeight="700" fontFamily="Poppins">OBTV STUDIOS</text>
           </svg>
         </Link>
 

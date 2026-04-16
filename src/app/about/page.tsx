@@ -4,6 +4,9 @@ import { useState, useEffect } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import styles from './page.module.css'
+import images from '../assets'
+const aboutImages = images.aboutImages
+const heroImages = images.heroImages
 
 function Image({ src, alt, width, height }: { src: string, alt: string, width?: number, height?: number }) {
   return <img src={src} alt={alt} style={{ width, height, objectFit: 'cover' }} />
@@ -34,7 +37,7 @@ export default function About() {
           <div className={styles.aboutGrid}>
             <div className={styles.aboutImage}>
               <Image 
-                src="https://i0.wp.com/obinnatvstudios.com/wp-content/uploads/2025/01/studio-bts-scaled.jpg?fit=2560%2C1440&ssl=1"
+                src={aboutImages.studioBts}
                 alt="About Us"
                 width={800}
                 height={600}
@@ -90,7 +93,7 @@ export default function About() {
           <div className={styles.teamGrid}>
             <div className={styles.teamCard}>
               <Image 
-                src="https://i0.wp.com/obinnatvstudios.com/wp-content/uploads/2025/01/obinna-profile.jpg?fit=1059%2C1059&ssl=1"
+                src={heroImages.obinnaProfile}
                 alt="Oga Obinna"
                 width={300}
                 height={300}

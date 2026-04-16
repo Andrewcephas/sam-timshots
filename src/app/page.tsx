@@ -6,6 +6,11 @@ import { Link } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import styles from './page.module.css'
+import images from '../assets'
+const heroImages = images.heroImages
+const aboutImages = images.aboutImages
+const newsImages = images.newsImages
+const galleryImages = images.galleryImages
 
 function Image({ src, alt, width, height, className }: { src: string, alt: string, width?: number, height?: number, className?: string }) {
   return <img src={src} alt={alt} className={className} style={{ width, height, objectFit: 'cover' }} />
@@ -17,30 +22,69 @@ const newsItems = [
     category: 'Uncategorized',
     title: 'Fridah and Lofty on Obinna Show Live',
     date: 'February 24, 2026',
-    image: 'https://i0.wp.com/obinnatvstudios.com/wp-content/uploads/2026/02/IMG_9197-scaled.jpg?fit=768%2C1152&ssl=1'
+    image: newsImages.FridaLofty
   },
   {
     id: 2,
     category: 'Entertainment',
     title: 'The Epic Showdown: Majembe vs. Mbavu Destroyer',
     date: 'February 9, 2026',
-    image: 'https://i0.wp.com/obinnatvstudios.com/wp-content/uploads/2026/02/Vurugu-Design.jpg-1.jpeg?fit=768%2C921&ssl=1'
+    image: newsImages.Vurugu
   },
   {
     id: 3,
     category: 'Uncategorized',
     title: 'Hoch Muhoro on Obinna Show Live',
     date: 'February 9, 2026',
-    image: 'https://i0.wp.com/obinnatvstudios.com/wp-content/uploads/2026/02/IMG_4305-scaled.jpg?fit=768%2C512&ssl=1'
+    image: newsImages.HochMuhoro
   }
 ]
 
 const services = [
-  { icon: '🎬', title: 'Content Production', desc: 'From scripting to shooting, we create content that resonates with your audience and drives engagement.' },
-  { icon: '🏠', title: 'Studio Rentals', desc: 'Flexible, fully-equipped studio space for all your production needs, from shoots to events.' },
-  { icon: '🎤', title: 'Event Coverage', desc: 'Professional live or recorded coverage for events, ensuring every moment is captured beautifully.' },
-  { icon: '⭐', title: 'Talent Management', desc: 'Access a roster of exceptional talent, including Oga Obinna, to bring charisma and energy to your project.' }
+  { icon: 'production', title: 'Content Production', desc: 'From scripting to shooting, we create content that resonates with your audience and drives engagement.' },
+  { icon: 'studio', title: 'Studio Rentals', desc: 'Flexible, fully-equipped studio space for all your production needs, from shoots to events.' },
+  { icon: 'event', title: 'Event Coverage', desc: 'Professional live or recorded coverage for events, ensuring every moment is captured beautifully.' },
+  { icon: 'talent', title: 'Talent Management', desc: 'Access a roster of exceptional talent, including Oga Obinna, to bring charisma and energy to your project.' }
 ]
+
+const ServiceIcon = ({ name }: { name: string }) => {
+  switch (name) {
+    case 'production':
+      return (
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="2" y="7" width="20" height="15" rx="2" />
+          <path d="M17 2l-5 5-5-5" />
+        </svg>
+      )
+    case 'studio':
+      return (
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M3 21h18" />
+          <path d="M5 21V7l8-4v18" />
+          <path d="M19 21V11l-6-4" />
+          <path d="M9 9v.01M9 12v.01M9 15v.01M9 18v.01" />
+        </svg>
+      )
+    case 'event':
+      return (
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="10" />
+          <circle cx="12" cy="12" r="3" />
+          <path d="M12 2v4M12 18v4M2 12h4M18 12h4" />
+        </svg>
+      )
+    case 'talent':
+      return (
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="8" r="4" />
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+          <path d="M16 3a4 4 0 0 0 4 4" />
+        </svg>
+      )
+    default:
+      return null
+  }
+}
 
 const features = [
   'Cutting-edge equipment and facilities',
@@ -71,7 +115,7 @@ const faqItems = [
   { q: 'How are talents vetted?', a: 'We thoroughly vet all talents to ensure professionalism, experience, and quality. Our team reviews portfolios, references, and past work.' }
 ]
 
-function AnimatedSection({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) {
+function AnimatedSection({ children, delay = 0, direction = 'up' }: { children: React.ReactNode, delay?: number, direction?: 'up' | 'left' | 'right' }) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-80px" })
   const controls = useAnimation()
@@ -82,19 +126,26 @@ function AnimatedSection({ children, delay = 0 }: { children: React.ReactNode, d
     }
   }, [isInView, controls])
 
+  const hidden = {
+    opacity: 0,
+    x: direction === 'left' ? -80 : direction === 'right' ? 80 : 0,
+    y: direction === 'up' ? 60 : 0,
+  }
+
   return (
     <motion.div
       ref={ref}
       initial="hidden"
       animate={controls}
       variants={{
-        hidden: { opacity: 0, y: 60 },
+        hidden,
         visible: { 
-          opacity: 1, 
+          opacity: 1,
+          x: 0,
           y: 0,
           transition: { 
-            duration: 0.7, 
-            delay: delay * 0.1, 
+            duration: 0.75,
+            delay: delay * 0.1,
             ease: [0.34, 1.56, 0.64, 1]
           }
         }
@@ -123,77 +174,66 @@ export default function Home() {
 
       {/* Hero Section - White background with 4 images in square pattern */}
       <section className={styles.hero}>
-        <div className={styles.heroContent}>
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Your Premier Destination for <span>Quality Content</span>
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            Where creativity meets professionalism, and stories come to life.
-          </motion.p>
-          <motion.div 
-            className={styles.heroButtons}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <Link to="/about" className={`btn btn-primary ${styles.btnPrimary}`}>Discover</Link>
-          </motion.div>
-        </div>
+        <AnimatedSection direction="left" delay={1}>
+          <div className={styles.heroContent}>
+            <h1>
+              Your Premier Destination for <span>Quality Content</span>
+            </h1>
+            <p>
+              Where creativity meets professionalism, and stories come to life.
+            </p>
+            <div className={styles.heroButtons}>
+              <Link to="/about" className={`btn btn-primary ${styles.btnPrimary}`}>Discover</Link>
+            </div>
+          </div>
+        </AnimatedSection>
         
-        {/* 4 Images in 2x2 grid with asymmetric border radius */}
+        {/* 4 Images in 2x2 grid with asymmetric border radius - each from different direction */}
         <div className={styles.heroImageGrid}>
           <motion.div
             className={`${styles.heroImageItem} ${styles.heroImageTopLeft}`}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.3 }}
+            initial={{ opacity: 0, x: -100, y: -50 }}
+            animate={{ opacity: 1, x: 0, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.34, 1.56, 0.64, 1] }}
           >
             <Image 
-              src="https://i0.wp.com/obinnatvstudios.com/wp-content/uploads/2025/01/obinna-profile.jpg?fit=1059%2C1059&ssl=1"
+              src={heroImages.obinnaProfile}
               alt="Obinna Profile"
               className={styles.heroImg}
             />
           </motion.div>
           <motion.div
             className={`${styles.heroImageItem} ${styles.heroImageTopRight}`}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.4 }}
+            initial={{ opacity: 0, y: -100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.35, ease: [0.34, 1.56, 0.64, 1] }}
           >
             <Image 
-              src="https://i0.wp.com/obinnatvstudios.com/wp-content/uploads/2025/02/ethic-ent.jpg?fit=850%2C550&ssl=1"
+              src={heroImages.ethicEnt}
               alt="Gallery 1"
               className={styles.heroImg}
             />
           </motion.div>
           <motion.div
             className={`${styles.heroImageItem} ${styles.heroImageBottomLeft}`}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.5 }}
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.5, ease: [0.34, 1.56, 0.64, 1] }}
           >
             <Image 
-              src="https://i0.wp.com/obinnatvstudios.com/wp-content/uploads/2025/02/dem-wa-fb.jpg?fit=1440%2C1440&ssl=1"
+              src={heroImages.demWaFb}
               alt="Gallery 2"
               className={styles.heroImg}
             />
           </motion.div>
           <motion.div
             className={`${styles.heroImageItem} ${styles.heroImageBottomRight}`}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.6 }}
+            initial={{ opacity: 0, x: 100, y: 50 }}
+            animate={{ opacity: 1, x: 0, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.65, ease: [0.34, 1.56, 0.64, 1] }}
           >
             <Image 
-              src="https://i0.wp.com/obinnatvstudios.com/wp-content/uploads/2025/02/Willy-Paul-msafi.jpg?fit=962%2C630&ssl=1"
+              src={heroImages.willyPaul}
               alt="Gallery 3"
               className={styles.heroImg}
             />
@@ -211,7 +251,7 @@ export default function Home() {
           </AnimatedSection>
           <div className={styles.newsGrid}>
             {newsItems.map((item, index) => (
-              <AnimatedSection key={item.id} delay={index * 0.1}>
+              <AnimatedSection key={item.id} delay={index * 0.1} direction={index % 2 === 0 ? 'left' : 'right'}>
                 <div className={styles.newsCard}>
                   <div className={styles.newsImage}>
                     <Image 
@@ -238,7 +278,7 @@ export default function Home() {
       <section className={styles.watchCta}>
         <div className={styles.container}>
           <AnimatedSection>
-            <h3>Catch the latest from <span style={{color: '#fff'}}>Obinna<span style={{color: '#fe7f02'}}>tv</span> Studios</span></h3>
+            <h3>Catch the latest from <span>Obinna<span style={{color: '#fe7f02'}}>tv</span> Studios</span></h3>
             <p>Always something new to watch! Get a sneak peek from our latest YouTube content right here. Click to dive into the full collection of videos, shows, and highlights on our dedicated Watch page.</p>
             <Link to="/watch" className="btn btn-primary">Watch Now</Link>
           </AnimatedSection>
@@ -252,7 +292,7 @@ export default function Home() {
             <AnimatedSection>
               <div className={styles.aboutImage}>
                 <Image 
-                  src="https://i0.wp.com/obinnatvstudios.com/wp-content/uploads/2025/01/studio-bts-scaled.jpg?fit=2560%2C1440&ssl=1"
+                  src={aboutImages.studioBts}
                   alt="About Us"
                   width={800}
                   height={600}
@@ -298,7 +338,7 @@ export default function Home() {
             {services.map((service, index) => (
               <AnimatedSection key={index} delay={index * 0.1}>
                 <div className={styles.serviceCard}>
-                  <div className={styles.serviceIcon}>{service.icon}</div>
+                  <div className={styles.serviceIcon}><ServiceIcon name={service.icon} /></div>
                   <h3>{service.title}</h3>
                   <p>{service.desc}</p>
                 </div>
@@ -327,7 +367,7 @@ export default function Home() {
             <AnimatedSection delay={0.2}>
               <div className={styles.founderImage}>
                 <Image 
-                  src="https://i0.wp.com/obinnatvstudios.com/wp-content/uploads/2025/02/obtv-bts-1.jpg?fit=1438%2C809&ssl=1"
+                  src={aboutImages.founder}
                   alt="Founder"
                   width={800}
                   height={450}
@@ -404,7 +444,7 @@ export default function Home() {
             <AnimatedSection>
               <div className={styles.faqImage}>
                 <Image 
-                  src="https://i0.wp.com/obinnatvstudios.com/wp-content/uploads/2025/01/content-creation.jpg?fit=1155%2C770&ssl=1"
+                  src={aboutImages.contentCreation}
                   alt="FAQ"
                   width={800}
                   height={600}
