@@ -1,0 +1,188 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 20px 40px;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  background: transparent;
+}
+
+.navbar.scrolled {
+  background: rgba(10, 10, 10, 0.98);
+  backdrop-filter: blur(20px);
+  padding: 15px 40px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(255, 107, 53, 0.1);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.logo:hover {
+  color: #ff6b35;
+}
+
+.logo span {
+  color: #ff6b35;
+}
+
+.navLinks {
+  display: flex;
+  gap: 35px;
+  list-style: none;
+  flex: 1;
+  justify-content: center;
+}
+
+.navLink {
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  white-space: nowrap;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ff6b35, #ff8f5a);
+  transition: width 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.navLink:hover {
+  color: #ff6b35;
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+.ctaButton {
+  background: linear-gradient(135deg, #ff6b35, #ff8f5a);
+  color: #ffffff;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  box-shadow: 0 5px 20px rgba(255, 107, 53, 0.3);
+}
+
+.ctaButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(255, 107, 53, 0.5);
+}
+
+.mobileMenuBtn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.mobileMenuBtn span {
+  width: 25px;
+  height: 2px;
+  background: #ffffff;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.mobileMenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 10, 0.99);
+  padding: 20px;
+  flex-direction: column;
+  gap: 15px;
+  border-top: 1px solid rgba(255, 107, 53, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.mobileLink {
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+  padding: 12px;
+  border-bottom: 1px solid #2a2a2a;
+  transition: all 0.3s ease;
+}
+
+.mobileLink:hover {
+  color: #ff6b35;
+  padding-left: 20px;
+}
+
+.mobileCta {
+  background: linear-gradient(135deg, #ff6b35, #ff8f5a);
+  color: #ffffff;
+  padding: 15px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.mobileCta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+}
+
+@media (max-width: 968px) {
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  .navLinks {
+    display: none;
+  }
+
+  .ctaButton {
+    display: none;
+  }
+
+  .mobileMenuBtn {
+    display: flex;
+  }
+
+  .mobileMenu {
+    display: flex;
+  }
+
+  .container {
+    gap: 20px;
+  }
+}

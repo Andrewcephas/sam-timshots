@@ -1,0 +1,14 @@
+[33mef3572f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{0}: reset: moving to ef3572f
+[33m9c730a9[m HEAD@{1}: reset: moving to 9c730a9
+[33m8a08121[m HEAD@{2}: reset: moving to 8a08121
+[33mef3572f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{3}: commit: Remove pulled content, keep only local project
+[33m9a6f97e[m HEAD@{4}: reset: moving to 9a6f97e
+[33m8a08121[m HEAD@{5}: reset: moving to HEAD
+[33m8a08121[m HEAD@{6}: commit: Reset and clean project
+[33m9a6f97e[m HEAD@{7}: reset: moving to 9a6f97e
+[33m8017e91[m HEAD@{8}: commit: Remove .next from git tracking
+[33mf49424c[m HEAD@{9}: commit: gitignore
+[33mb9df29f[m HEAD@{10}: commit: gitignore
+[33m941f54f[m HEAD@{11}: commit: good night
+[33m9c730a9[m HEAD@{12}: commit: second commit
+[33m9a6f97e[m HEAD@{13}: commit (initial): first commit
