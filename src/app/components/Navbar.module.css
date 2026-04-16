@@ -4,17 +4,18 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: 20px 40px;
+  padding: 15px 40px;
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  background: transparent;
+  background: #f5f5f5;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .navbar.scrolled {
-  background: rgba(10, 10, 10, 0.98);
+  background: #ffffff;
   backdrop-filter: blur(20px);
-  padding: 15px 40px;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
-  border-bottom: 1px solid rgba(255, 107, 53, 0.1);
+  padding: 12px 40px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #e8e8e8;
 }
 
 .container {
@@ -27,20 +28,20 @@
 }
 
 .logo {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
-  color: #ffffff;
+  color: #1a1a1a;
   letter-spacing: 1px;
   transition: all 0.3s ease;
   flex-shrink: 0;
 }
 
 .logo:hover {
-  color: #ff6b35;
+  color: #fe7f02;
 }
 
 .logo span {
-  color: #ff6b35;
+  color: #fe7f02;
 }
 
 .navLinks {
@@ -54,7 +55,7 @@
 .navLink {
   font-size: 14px;
   font-weight: 500;
-  color: #ffffff;
+  color: #333333;
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   position: relative;
   white-space: nowrap;
@@ -67,12 +68,12 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #ff6b35, #ff8f5a);
+  background: linear-gradient(90deg, #fe7f02, #ff9f33);
   transition: width 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .navLink:hover {
-  color: #ff6b35;
+  color: #fe7f02;
 }
 
 .navLink:hover::after {
@@ -80,7 +81,7 @@
 }
 
 .ctaButton {
-  background: linear-gradient(135deg, #ff6b35, #ff8f5a);
+  background: linear-gradient(135deg, #fe7f02, #ff9f33);
   color: #ffffff;
   padding: 12px 28px;
   border-radius: 6px;
@@ -90,12 +91,12 @@
   border: none;
   cursor: pointer;
   flex-shrink: 0;
-  box-shadow: 0 5px 20px rgba(255, 107, 53, 0.3);
+  box-shadow: 0 5px 20px rgba(254, 127, 2, 0.3);
 }
 
 .ctaButton:hover {
   transform: translateY(-3px);
-  box-shadow: 0 15px 40px rgba(255, 107, 53, 0.5);
+  box-shadow: 0 15px 40px rgba(254, 127, 2, 0.5);
 }
 
 .mobileMenuBtn {
@@ -111,7 +112,7 @@
 .mobileMenuBtn span {
   width: 25px;
   height: 2px;
-  background: #ffffff;
+  background: #333333;
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
@@ -121,30 +122,30 @@
   top: 100%;
   left: 0;
   right: 0;
-  background: rgba(10, 10, 10, 0.99);
+  background: #ffffff;
   padding: 20px;
   flex-direction: column;
   gap: 15px;
-  border-top: 1px solid rgba(255, 107, 53, 0.1);
-  backdrop-filter: blur(10px);
+  border-top: 1px solid #e0e0e0;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
 }
 
 .mobileLink {
   font-size: 16px;
   font-weight: 500;
-  color: #ffffff;
+  color: #333333;
   padding: 12px;
-  border-bottom: 1px solid #2a2a2a;
+  border-bottom: 1px solid #e8e8e8;
   transition: all 0.3s ease;
 }
 
 .mobileLink:hover {
-  color: #ff6b35;
+  color: #fe7f02;
   padding-left: 20px;
 }
 
 .mobileCta {
-  background: linear-gradient(135deg, #ff6b35, #ff8f5a);
+  background: linear-gradient(135deg, #fe7f02, #ff9f33);
   color: #ffffff;
   padding: 15px;
   border-radius: 6px;
@@ -158,12 +159,12 @@
 
 .mobileCta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+  box-shadow: 0 10px 30px rgba(254, 127, 2, 0.4);
 }
 
 @media (max-width: 968px) {
   .navbar {
-    padding: 15px 20px;
+    padding: 12px 20px;
   }
 
   .navLinks {

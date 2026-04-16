@@ -1,6 +1,6 @@
 .main {
   min-height: 100vh;
-  background: #0a0a0a;
+  background: #ffffff;
 }
 
 .container {
@@ -12,18 +12,19 @@
 .hero {
   padding: 150px 0 60px;
   text-align: center;
-  background: linear-gradient(135deg, #0a0a0a 0%, #141414 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
 }
 
 .hero h1 {
   font-size: 52px;
   font-weight: 700;
   margin-bottom: 15px;
+  color: #1a1a1a;
 }
 
 .hero p {
   font-size: 18px;
-  color: #a0a0a0;
+  color: #666666;
 }
 
 .talent {
@@ -38,10 +39,11 @@
 .sectionHeader h2 {
   font-size: 42px;
   font-weight: 700;
+  color: #1a1a1a;
 }
 
 .sectionHeader p {
-  color: #a0a0a0;
+  color: #666666;
   font-size: 18px;
   margin-top: 10px;
 }
@@ -53,11 +55,12 @@
 }
 
 .talentCard {
-  background: #141414;
+  background: #ffffff;
   border-radius: 15px;
   overflow: hidden;
   transition: transform 0.3s ease;
   cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 .talentCard:hover {
@@ -91,16 +94,17 @@
   font-size: 22px;
   font-weight: 600;
   margin: 10px 0;
+  color: #1a1a1a;
 }
 
 .role {
-  color: #a0a0a0;
+  color: #666666;
   font-size: 14px;
 }
 
 .services {
   padding: 80px 0;
-  background: #141414;
+  background: #f5f5f5;
 }
 
 .servicesGrid {
@@ -110,19 +114,21 @@
 }
 
 .serviceCard {
-  background: #1a1a1a;
+  background: #ffffff;
   padding: 30px;
   border-radius: 15px;
   text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 .serviceCard h3 {
   font-size: 20px;
   margin-bottom: 15px;
+  color: #1a1a1a;
 }
 
 .serviceCard p {
-  color: #a0a0a0;
+  color: #666666;
   font-size: 14px;
 }
 
@@ -140,15 +146,16 @@
 .formContent h2 {
   font-size: 38px;
   margin-bottom: 15px;
+  color: #1a1a1a;
 }
 
 .formContent p {
-  color: #a0a0a0;
+  color: #666666;
   font-size: 16px;
 }
 
 .bookingForm {
-  background: #141414;
+  background: #f5f5f5;
   padding: 40px;
   border-radius: 15px;
 }
@@ -162,6 +169,7 @@
   margin-bottom: 8px;
   font-weight: 500;
   font-size: 14px;
+  color: #333333;
 }
 
 .formGroup input,
@@ -169,10 +177,10 @@
 .formGroup textarea {
   width: 100%;
   padding: 14px 16px;
-  background: #1a1a1a;
-  border: 1px solid #2a2a2a;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
   border-radius: 8px;
-  color: #ffffff;
+  color: #1a1a1a;
   font-size: 15px;
   font-family: inherit;
 }

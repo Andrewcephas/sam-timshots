@@ -1,6 +1,6 @@
 .main {
   min-height: 100vh;
-  background: #0a0a0a;
+  background: #ffffff;
 }
 
 .container {
@@ -12,18 +12,19 @@
 .hero {
   padding: 150px 0 60px;
   text-align: center;
-  background: linear-gradient(135deg, #0a0a0a 0%, #141414 100%);
+  background: #f8f8f8;
 }
 
 .hero h1 {
   font-size: 52px;
   font-weight: 700;
   margin-bottom: 15px;
+  color: #1a1a1a;
 }
 
 .hero p {
   font-size: 18px;
-  color: #a0a0a0;
+  color: #666666;
 }
 
 .news {
@@ -37,15 +38,18 @@
 }
 
 .newsCard {
-  background: #141414;
-  border-radius: 15px;
+  background: #ffffff;
+  border-radius: 50px 15px 15px 15px;
   overflow: hidden;
   display: flex;
   transition: transform 0.3s ease;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 .newsCard:hover {
   transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(254, 127, 2, 0.2);
 }
 
 .newsImage {
@@ -69,7 +73,7 @@
 
 .category {
   font-size: 12px;
-  color: #ff6b35;
+  color: #fe7f02;
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 1px;
@@ -81,23 +85,24 @@
   font-weight: 600;
   margin-bottom: 10px;
   line-height: 1.4;
+  color: #1a1a1a;
 }
 
 .date {
   font-size: 14px;
-  color: #a0a0a0;
+  color: #666666;
   margin-bottom: 15px;
 }
 
 .newsContent p {
-  color: #a0a0a0;
+  color: #666666;
   font-size: 15px;
   line-height: 1.6;
   margin-bottom: 15px;
 }
 
 .readMore {
-  color: #ff6b35;
+  color: #fe7f02;
   font-weight: 600;
 }
 
